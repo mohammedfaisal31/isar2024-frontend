@@ -3,6 +3,7 @@ import axios from 'axios';
 import './users.css';
 import { FaSearch } from 'react-icons/fa';
 import { API_ROUTES } from '../app-modules/api_routes';
+import QRCode from 'qrcode.react'; // Import the QRCode component
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -40,7 +41,7 @@ const UserList = () => {
 
     return (
         <div className="user-list">
-            <h1>User List</h1>
+            <h1>Members List</h1>
             <div className="search-container">
                 <FaSearch className="search-icon" />
                 <input 
@@ -84,7 +85,7 @@ const UserList = () => {
                         <p>State of Practice: {selectedUser.user_state_of_practice}</p>
                         <p>Payment Status: {selectedUser.user_payment_status}</p>
                         <p>Registration Type: {selectedUser.user_registration_type}</p>
-                        <button onClick={() => alert('QR Code Button Clicked')}>QR Code</button>
+                        <QRCode value={selectedUser.user_id.toString()} /> {/* Pass user_id as value to generate QR code */}
                     </div>
                 </div>
             )}

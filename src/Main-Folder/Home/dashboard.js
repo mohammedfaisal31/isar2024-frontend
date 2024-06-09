@@ -22,17 +22,6 @@ const Dashboard = () => {
                             <img src={menuIcon} alt="Menu" className="menu-icon" onClick={toggleMenu} />
                             <h1>Dashboard</h1>
                         </div>
-                        <div className="header_search">
-                            <input type="text" placeholder="Search..." className="search_input" />
-                        </div>
-                        <div className="header_buttons">
-                            <button className="header_button">
-                                <img src={settingsIcon} alt="Settings" />
-                            </button>
-                            <button className="header_button">
-                                <img src={notiIcon} alt="Notifications" />
-                            </button>
-                        </div>
                     </header>
                 </div>
                 <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

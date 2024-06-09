@@ -1,0 +1,46 @@
+/* createSession.css */
+
+.create-session-form {
+    width: 400px; /* Adjust width */
+    height: auto; /* Let height adjust based on content */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+  }
+  
+  .create-session-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .create-session-form input[type="text"],
+  .create-session-form input[type='datetime-local']
+  {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    background-color: #121212;
+    border: none;
+    color: white;
+  }
+  
+  /* Adjust the size of the checkbox */
+  .create-session-form input[type="checkbox"] {
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    margin-right: 10px; /* Add margin to separate from text */
+  }
+  
+  .create-session-form button {
+    width: 100%; /* Make button full width */
+    padding: 10px 20px;
+    background: linear-gradient(to right, #9F9BEA 0%, #72C3EE 100%); /* Adjust gradient colors for hover */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .create-session-form button:hover {
+    background: linear-gradient(to right, #72C3EE 0%, #9F9BEA 100%); /* Adjust gradient colors for hover */
+  }

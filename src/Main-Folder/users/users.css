@@ -37,8 +37,8 @@
 }
 
 .card {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
+    background-color: #121212;
+    border: 1px solid #121212;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
@@ -53,7 +53,8 @@
 
 .card h2 {
     margin: 0 0 10px;
-    font-size: 1.5em;
+    font-size: 20px;
+    font-weight: 100;
 }
 
 .card p {
@@ -67,17 +68,17 @@
 }
 
 .card-actions button {
-    background-color: #6200ea;
+    background: linear-gradient(to right, #9F9BEA 0%, #72C3EE 100%); /* Adjust gradient colors for hover */
     border: none;
     border-radius: 4px;
     color: #ffffff;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 8px 14px;
     font-size: 1em;
 }
 
 .card-actions button:hover {
-    background-color: #3700b3;
+    background: linear-gradient(to right, #72C3EE 0%, #9F9BEA 100%); /* Adjust gradient colors for hover */
 }
 
 /* Modal Styles */
