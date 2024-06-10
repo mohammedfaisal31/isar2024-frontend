@@ -117,7 +117,7 @@ const AddMember = () => {
                         </label>
                         <label>
                             State:
-                            <input type="text" name="user_state" value={formData.user_state_of_practice} onChange={handleChange} />
+                            <input type="text" name="user_state_of_practice" value={formData.user_state_of_practice} onChange={handleChange} />
                         </label>
                         <label>
                             Medical Council Number:

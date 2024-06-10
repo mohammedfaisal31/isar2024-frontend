@@ -168,7 +168,37 @@
     color: #666;
     font-size: 12px;
 }
+.current-event-container {
+    max-width: 320px;
+    margin: 20px auto;
+}
 
+.current-event {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.current-event h2 {
+    margin-bottom: 10px;
+}
+
+.current-event p {
+    margin-bottom: 5px;
+}
+
+.end-event-btn {
+    background: linear-gradient(to right, #9F9BEA 0%, #72C3EE 100%); /* Adjust gradient colors for hover */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.end-event-btn:hover {
+    background: linear-gradient(to right, #72C3EE 0%, #9F9BEA 100%); /* Adjust gradient colors for hover */
+}
 /* Responsive design */
 @media (max-width: 768px) {
     .dashboard_header {

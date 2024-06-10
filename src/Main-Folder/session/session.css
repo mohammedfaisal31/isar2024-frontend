@@ -1,0 +1,28 @@
+.session-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.active-sessions, .inactive-sessions {
+    width: 45%;
+}
+
+.session-container h2 {
+    border-bottom: 1px solid #121212;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.session-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.session-container li {
+    background-color: #121212;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 9px;
+    border: 1px solid #121212;
+}

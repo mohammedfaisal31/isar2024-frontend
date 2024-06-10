@@ -10,7 +10,6 @@ import { API_ROUTES } from "../app-modules/api_routes";
 const CreateSession = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [title, setTitle] = useState('');
-    const [lastSession, setLastSession] = useState(false);
     const [endTime, setEndTime] = useState('');
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -19,11 +18,10 @@ const CreateSession = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(API_ROUTES.createSession, { title, lastSession });
+            const res = await axios.post(API_ROUTES.createSession, { title });
             console.log(res.data.message);
             // Optionally reset form fields
             setTitle('');
-            setLastSession(false);
         } catch (error) {
             console.error('Error creating session:', error);
         }
@@ -61,10 +59,6 @@ const CreateSession = () => {
             End Time:
             <input type="datetime-local" defaultValue={getCurrentDateTime()} onChange={(e) => setEndTime(e.target.value)} />
         </label>
-                        <label>
-                            Last Session:
-                            <input type="checkbox" checked={lastSession} onChange={(e) => setLastSession(e.target.checked)} />
-                        </label>
                         <button type="submit">Create Session</button>
                     </form>
                 </div>
