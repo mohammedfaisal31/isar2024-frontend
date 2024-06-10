@@ -23,11 +23,14 @@ const UserList = () => {
     }, []);
 
     const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
+        setSearchTerm(event.target.value.toLowerCase());
     };
 
     const filteredUsers = users.filter(user => 
-        user.user_phone.includes(searchTerm)
+        user.user_phone.includes(searchTerm) ||
+        user.user_email.toLowerCase().includes(searchTerm) ||
+        user.user_payment_id.toLowerCase().includes(searchTerm) ||
+        user.full_name.toLowerCase().includes(searchTerm)
     );
 
     const openModal = (user) => {
@@ -79,7 +82,7 @@ const UserList = () => {
                 <FaSearch className="search-icon" />
                 <input 
                     type="text" 
-                    placeholder="Search by phone number" 
+                    placeholder="Search by phone number, email, payment ID, or name"
                     value={searchTerm} 
                     onChange={handleSearch} 
                     className="search-bar"
@@ -94,10 +97,10 @@ const UserList = () => {
                             <div className="card-actions">
                                 <button onClick={() => openModal(user)}>Details</button>
                                 <button onClick={() => handleLogin(user.user_id)}>Login</button>
+                                <button onClick={() => openQrModal(user)}>Show QR</button>
                             </div>
                             {user.errorMsg && <p className="error">{user.errorMsg}</p>}
                             {user.successMsg && <p className="success">{user.successMsg}</p>}
-                            <button onClick={() => openQrModal(user)}>Show QR</button>
                         </div>
                     </div>
                 ))}
@@ -121,6 +124,7 @@ const UserList = () => {
                         <p>State of Practice: {selectedUser.user_state_of_practice}</p>
                         <p>Payment Status: {selectedUser.user_payment_status}</p>
                         <p>Registration Type: {selectedUser.user_registration_type}</p>
+                        <p>Payment ID: {selectedUser.user_payment_id}</p>
                         <button onClick={closeModal}>Close</button>
                     </div>
                 </div>
@@ -130,7 +134,7 @@ const UserList = () => {
                     <div className="qr-modal-content">
                         <span className="close" onClick={closeQrModal}>&times;</span>
                         <h2>QR Code for {selectedUser.full_name}</h2>
-                        <QRCode value={selectedUser.user_id.toString()} />
+                        <QRCode value={selectedUser.user_id.toString()} /><br/>
                         <button className="print-btn" onClick={() => { window.print(); }}>Print</button>
                     </div>
                 </div>

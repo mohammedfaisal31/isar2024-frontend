@@ -160,3 +160,15 @@
         display: none;
     }
 }
+
+.print-btn {
+    background: linear-gradient(to right, #9F9BEA 0%, #72C3EE 100%); /* Adjust gradient colors for hover */
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px 14px;
+    font-size: 1em;
+    text-align: center;
+    margin: 10px 0px;
+}
