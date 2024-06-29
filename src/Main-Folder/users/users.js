@@ -41,7 +41,7 @@ const UserList = () => {
         setSearchTerm(event.target.value.toLowerCase());
     };
 
-    const filteredUsers = users.filter(user => 
+    const filteredUsers = users.filter(user =>
         user.user_phone.includes(searchTerm) ||
         user.user_email.toLowerCase().includes(searchTerm) ||
         user.user_payment_id.toLowerCase().includes(searchTerm) ||
@@ -160,11 +160,11 @@ const UserList = () => {
             <h1>Members List</h1>
             <div className="search-container">
                 <FaSearch className="search-icon" />
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     placeholder="Search by phone number, email, payment ID, or name"
-                    value={searchTerm} 
-                    onChange={handleSearch} 
+                    value={searchTerm}
+                    onChange={handleSearch}
                     className="search-bar"
                 />
             </div>
@@ -180,6 +180,9 @@ const UserList = () => {
                                 <button onClick={() => openQrModal(user)}>Show QR</button>
                                 <button onClick={() => openEditModal(user)}>Edit</button>
                             </div>
+                            {user.user_payment_id === 'MOJO' && (
+                                <p className="error">Payment not done</p>
+                            )}
                             {user.errorMsg && <p className="error">{user.errorMsg}</p>}
                             {user.successMsg && <p className="success">{user.successMsg}</p>}
                         </div>

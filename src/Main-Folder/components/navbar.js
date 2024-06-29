@@ -44,6 +44,10 @@ const Navbar = ({ isMenuOpen, toggleMenu }) => {
                     <img src={createEventIcon} alt="create event" />
                     Create Event
                 </button>
+                <button className={activeButton === '/print-users' ? 'active' : ''} onClick={() => handleButtonClick('/print-users')}>
+                    <img src={createEventIcon} alt="print-users" />
+                    Print Users
+                </button>
             </div>
         </div>
     );
