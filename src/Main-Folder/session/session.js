@@ -3,6 +3,7 @@ import './session.css';
 import Navbar from "../components/navbar";
 import menuIcon from '../images/icons8-menu-50.png';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { API_ROUTES } from "../app-modules/api_routes";
 
 const Session = () => {
@@ -58,6 +59,9 @@ const Session = () => {
                                 <p>Title: {session.title}</p>
                                 <p>Start Time: {new Date(session.start_time).toLocaleString()}</p>
                                 <p>End Time: {new Date(session.end_time).toLocaleString()}</p>
+                                <Link to={`/session/members/${session.session_id}`}>
+                                <button>Members</button>
+                                </Link>
                                 <button onClick={() => endSession(session.session_id)}>End</button>
                             </li>
                         ))}
@@ -71,6 +75,9 @@ const Session = () => {
                                 <p>Title: {session.title}</p>
                                 <p>Start Time: {new Date(session.start_time).toLocaleString()}</p>
                                 <p>End Time: {new Date(session.end_time).toLocaleString()}</p>
+                                <Link to={`/session/members/${session.session_id}`}>
+                                <button>Members</button>
+                                </Link>
                             </li>
                         ))}
                     </ul>

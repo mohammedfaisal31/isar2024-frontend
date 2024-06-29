@@ -26,3 +26,35 @@
     border-radius: 9px;
     border: 1px solid #121212;
 }
+
+.members-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #121212;
+    margin-top: 20px;
+}
+
+.members-container h2 {
+    margin-bottom: 20px;
+}
+
+.members-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.members-container li {
+    background-color: #181818;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.members-container li p {
+    margin: 5px 0;
+}
+
+.members-container li p strong {
+    font-weight: bold;
+}

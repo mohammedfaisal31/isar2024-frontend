@@ -20,8 +20,7 @@ const AddMember = () => {
         user_med_council_number: '',
         user_category: '',
         user_type: '',
-        user_package_id: '',
-        user_payment_id: '' // New field
+        user_package_id: ''
     });
 
     const handleChange = (e) => {
@@ -31,10 +30,23 @@ const AddMember = () => {
         });
     };
 
+    const generateUniquePaymentId = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let paymentId = '';
+        for (let i = 0; i < 5; i++) {
+            paymentId += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return paymentId;
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        // Generate a unique payment ID
+        const paymentId = generateUniquePaymentId();
+        // Include the payment ID in the form data
+        const dataToSubmit = { ...formData, user_payment_id: paymentId };
         // Send form data to server
-        axios.post(API_ROUTES.addMember, formData)
+        axios.post(API_ROUTES.addMember, dataToSubmit)
             .then(response => {
                 console.log('Member added successfully:', response.data);
                 // Reset form data after successful submission
@@ -51,8 +63,7 @@ const AddMember = () => {
                     user_med_council_number: '',
                     user_category: '',
                     user_type: '',
-                    user_package_id: '',
-                    user_payment_id: '' // Reset new field
+                    user_package_id: ''
                 });
             })
             .catch(error => {
@@ -153,10 +164,6 @@ const AddMember = () => {
                                 <option value="5">DO1-1</option>
                                 <option value="6">DO1-2</option>
                             </select>
-                        </label>
-                        <label>
-                            Payment ID:
-                            <input type="text" name="user_payment_id" value={formData.user_payment_id} onChange={handleChange} required />
                         </label>
                         <button type="submit">Submit</button>
                     </form>

@@ -12,4 +12,6 @@ export const API_ROUTES = {
   userLogin: `${API_URL}/api/user/login`,
   currentEvent: `${API_URL}/api/event/current`,
   endEvent: `${API_URL}/api/event/end`,
+  getMembersBySession: `${API_URL}/api/getMembersBySession`,
+  updateUser: `${API_URL}/api/updateUser`,
 };
