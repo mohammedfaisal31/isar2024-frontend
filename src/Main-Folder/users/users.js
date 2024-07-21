@@ -219,7 +219,7 @@ const UserList = () => {
                     <div className="qr-modal-content">
                         <span className="close" onClick={closeQrModal}>&times;</span>
                         <h2>QR Code for {selectedUser.full_name}</h2>
-                        <QRCode value={selectedUser.user_payment_id.toString()} /><br/>
+                        <QRCode value={selectedUser.user_payment_id.toString() } /><br/>
                         <button className="print-btn" onClick={() => { window.print(); }}>Print</button>
                     </div>
                 </div>
