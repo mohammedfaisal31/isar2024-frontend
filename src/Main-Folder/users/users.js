@@ -24,7 +24,8 @@ const UserList = () => {
         user_type: '',
         user_package_id: '',
         user_city: '',
-        user_state_of_practice: ''
+        user_state_of_practice: '',
+        user_payment_id: ''
     });
 
     useEffect(() => {
@@ -81,7 +82,8 @@ const UserList = () => {
             user_type: user.user_type,
             user_package_id: user.user_package_id,
             user_city: user.user_city,
-            user_state_of_practice: user.user_state_of_practice
+            user_state_of_practice: user.user_state_of_practice,
+            user_payment_id: user.user_payment_id
         });
         setEditModalOpen(true);
     };
@@ -127,10 +129,14 @@ const UserList = () => {
                 closeEditModal();
             })
             .catch(error => {
-                console.error('Error updating user:', error);
-                // Handle error if needed
+                if (error.response && error.response.status === 409) {
+                    alert('Phone number already registered');
+                } else {
+                    console.error('Error updating user:', error);
+                }
             });
     };
+
 
     const handleLogin = (userId) => {
         axios.post(`${API_ROUTES.userLogin}/${userId}`)
@@ -219,7 +225,7 @@ const UserList = () => {
                     <div className="qr-modal-content">
                         <span className="close" onClick={closeQrModal}>&times;</span>
                         <h2>QR Code for {selectedUser.full_name}</h2>
-                        <QRCode value={selectedUser.user_payment_id.toString() } /><br/>
+                        <QRCode value={selectedUser.user_payment_id.toString()} /><br />
                         <button className="print-btn" onClick={() => { window.print(); }}>Print</button>
                     </div>
                 </div>
@@ -336,6 +342,15 @@ const UserList = () => {
                                     type="text"
                                     name="user_state_of_practice"
                                     value={editedUser.user_state_of_practice}
+                                    onChange={handleEditChange}
+                                />
+                            </label>
+                            <label>
+                                Payment ID:
+                                <input
+                                    type="text"
+                                    name="user_payment_id"
+                                    value={editedUser.user_payment_id}
                                     onChange={handleEditChange}
                                 />
                             </label>
