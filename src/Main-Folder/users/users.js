@@ -20,6 +20,7 @@ const UserList = () => {
         user_email: '',
         user_phone: '',
         user_med_council_number: '',
+        user_organisation: '',
         user_category: '',
         user_type: '',
         user_package_id: '',
@@ -78,6 +79,7 @@ const UserList = () => {
             user_email: user.user_email,
             user_phone: user.user_phone,
             user_med_council_number: user.user_med_council_number,
+            user_organisation: user.user_organisation,
             user_category: user.user_category,
             user_type: user.user_type,
             user_package_id: user.user_package_id,
@@ -99,11 +101,13 @@ const UserList = () => {
             user_email: '',
             user_phone: '',
             user_med_council_number: '',
+            user_organisation: '',
             user_category: '',
             user_type: '',
             user_package_id: '',
             user_city: '',
-            user_state_of_practice: ''
+            user_state_of_practice: '',
+            user_payment_id: ''
         });
     };
 
@@ -208,6 +212,7 @@ const UserList = () => {
                         <p>Email: {selectedUser.user_email}</p>
                         <p>Phone: {selectedUser.user_phone}</p>
                         <p>Medical Council Number: {selectedUser.user_med_council_number}</p>
+                        <p>Organisation: {selectedUser.user_organisation}</p>
                         <p>Category: {selectedUser.user_category}</p>
                         <p>Type: {selectedUser.user_type}</p>
                         <p>City: {selectedUser.user_city}</p>
@@ -297,6 +302,15 @@ const UserList = () => {
                                     type="text"
                                     name="user_med_council_number"
                                     value={editedUser.user_med_council_number}
+                                    onChange={handleEditChange}
+                                />
+                            </label>
+                            <label>
+                                Organisation:
+                                <input
+                                    type="text"
+                                    name="user_organisation"
+                                    value={editedUser.user_organisation}
                                     onChange={handleEditChange}
                                 />
                             </label>

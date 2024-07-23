@@ -18,6 +18,7 @@ const AddMember = () => {
     user_city: '',
     user_state_of_practice: '',
     user_med_council_number: '',
+    user_organisation: '',
     user_category: '',
     user_type: '',
     user_package_id: '',
@@ -152,6 +153,10 @@ const AddMember = () => {
             <label>
               Medical Council Number:
               <input type="text" name="user_med_council_number" value={formData.user_med_council_number} onChange={handleChange} />
+            </label>
+            <label>
+              Organisation:
+              <input type="text" name="user_organisation" value={formData.user_organisation} onChange={handleChange} />
             </label>
             <label>
               Category:
